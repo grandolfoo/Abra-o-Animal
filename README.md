@@ -381,6 +381,8 @@
             <button class="filter-btn active" onclick="filterPets('todos', event)">Todos</button>
             <button class="filter-btn" onclick="filterPets('cachorro', event)">Cachorros</button>
             <button class="filter-btn" onclick="filterPets('gato', event)">Gatos</button>
+            <button class="filter-btn" onclick="filterPets('ouriço', event)">Ouriços</button>
+            <button class="filter-btn" onclick="filterPets('papagaio', event)">Papagaios</button>
         </div>
 
         <div class="pets-grid" id="petsContainer">
@@ -409,6 +411,61 @@
                 <img src="https://s2-globorural.glbimg.com/iZ0CNNZjGxlhpn6dp7SFJJQJn4I=/0x0:5200x3481/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_afe5c125c3bb42f0b5ae633b58923923/internal_photos/bs/2022/Z/M/KSqLB5RSag5QKidCPaaw/gettyimages-709130459.jpg" class="pet-img" alt="Apollo">
                 <div class="pet-info">
                     <h3>Apollo</h3>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Porte Grande</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+
+             <div class="pet-card" data-type="gato">
+                <span class="pet-tag">Gato</span>
+                <img src="https://cantinhodosanimais.com.br/wordpress/wp-content/files/cantinhodosanimais.com.br/2025/12/brisht-shorthair-1024x683.webp" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Blaze</h3>
+                    <p><i class="fas fa-venus-mars"></i> Femea | <i class="fas fa-dog"></i> Porte Grande</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+            <div class="pet-card" data-type="ouriço">
+                <span class="pet-tag">Ouriço</span>
+                <img src="https://www.phoenixzoo.org/wp-content/uploads/2024/03/DSC_6835-scaled.jpg" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Chuck</h3>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Porte pequeno</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+            <div class="pet-card" data-type="papagaio">
+                <span class="pet-tag">Papagaio</span>
+                <img src="https://www.galaxcommerce.com.br/sistema/upload/3339/produtos/papagaio-verdadeiro-amazona-aestiva_2024-02-23_23-31-12_3_254.png" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Jet</h3>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-bird"></i> Porte pequeno</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+             <div class="pet-card" data-type="cachorro">
+                <span class="pet-tag">Cachorro</span>
+                <img src="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/09/23/1726614881-cachorro-adocao.jpg" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Chip</h3>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> filhote</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+            <div class="pet-card" data-type="cachorro">
+                <span class="pet-tag">Cachorro</span>
+                <img src="https://i.pinimg.com/736x/4e/c0/0c/4ec00c75e56b79d456df24893bae7241.jpg" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Shadow</h3>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> filhote</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                </div>
+            </div>
+            <div class="pet-card" data-type="cachorro">
+                <span class="pet-tag">Cachorro</span>
+                <img src="https://www.patasdacasa.com.br/sites/default/files/styles/article_detail_1200/public/2024-06/bull-terrier.jpg.webp?itok=X_-JN03E" class="pet-img" alt="Apollo">
+                <div class="pet-info">
+                    <h3>Brutos</h3>
                     <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Porte Grande</p>
                     <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
                 </div>
@@ -454,9 +511,7 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Nome do Pet</h2>
             <p id="modalDesc" style="margin: 20px 0; color: #666;"></p>
-            <a href="https://forms.cloud.microsoft/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=SxwFsZQ7q0GUQec6cjQv3TElQQ6m1MdAjnvCNT9vWIdUOTNGNDhMTTZWR1U4RUlGSURURktOOTNUUS4u&analysis=false&topview=Preview">
             <button class="btn-cta">Iniciar Processo de Adoção</button>
-            </a>
         </div>
     </div>
 
