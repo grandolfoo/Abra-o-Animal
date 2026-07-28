@@ -511,7 +511,9 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Nome do Pet</h2>
             <p id="modalDesc" style="margin: 20px 0; color: #666;"></p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdK6lblq5K0Mr68jVqpbR-abyiZGTYtRceyTSh9HQHP2-64lg/viewform?usp=header">
             <button class="btn-cta">Iniciar Processo de Adoção</button>
+            </a>
         </div>
     </div>
 
