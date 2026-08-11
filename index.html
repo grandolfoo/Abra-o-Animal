@@ -32,7 +32,7 @@
 
         h1, h2, h3, .logo { font-weight: 700; }
 
-        /* Container global para evitar esticar demais em TVs */
+        /* Container global */
         .container {
             width: 100%;
             max-width: 1400px;
@@ -50,7 +50,7 @@
             width: 100%; 
             top: 0; 
             z-index: 2000;
-            padding: 20px 8%; 
+            padding: 45px 8%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center;
@@ -60,7 +60,7 @@
 
         header.scrolled {
             background: var(--white);
-            padding: 15px 8%;
+            padding: 30px 8%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
@@ -72,7 +72,7 @@
         }
 
         .logo-img {
-            height: 70px;
+            height: 100px;
             width: auto;
             transition: var(--transition);
         }
@@ -82,7 +82,7 @@
 
         header.scrolled .logo-branca { opacity: 0; visibility: hidden; }
         header.scrolled .logo-laranja { opacity: 1; visibility: visible; }
-        header.scrolled .logo-img { height: 60px; }
+        header.scrolled .logo-img { height: 80px; }
 
         /* Navigation Menu */
         nav ul { 
@@ -145,6 +145,8 @@
             cursor: pointer; 
             transition: var(--transition); 
             box-shadow: 0 10px 20px rgba(243, 141, 30, 0.3);
+            display: inline-block;
+            text-decoration: none;
         }
         .btn-cta:hover { 
             transform: translateY(-3px); 
@@ -230,8 +232,105 @@
         }
         .routine-row:last-child { border-bottom: none; }
         .routine-row:hover { background: #fffcf7; }
-        .time-cell { background: var(--secondary); color: var(--primary); padding: 18px 20px; font-weight: 700; display: flex; align-items: center; }
+        .time-cell { 
+            background: var(--secondary);
+            color: var(--white);
+            padding: 18px 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
         .task-cell { padding: 18px 20px; display: flex; align-items: center; font-weight: 500; }
+
+        /* --- Estilos da Seção Quero Ajudar --- */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .help-card {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .help-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(243, 141, 30, 0.15);
+        }
+
+        .help-icon {
+            width: 70px;
+            height: 70px;
+            background: #fdf2e9;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .help-card:hover .help-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .help-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .help-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .pix-box {
+            background: #fdf2e9;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+            width: 100%;
+            margin-bottom: 15px;
+            word-break: break-all;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        .btn-copy {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .btn-copy:hover {
+            background: var(--primary-dark);
+        }
 
         /* --- Modal de Detalhes --- */
         .modal {
@@ -284,9 +383,25 @@
 
         .paw-left-bottom { right: 5%; bottom: 10px; }
 
+        .map-container {
+            margin-top: 40px;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            display: block;
+        }
+
         .footer-bottom {
             text-align: center; 
-            margin-top: 60px; 
+            margin-top: 40px; 
             opacity: .6; 
             font-size: .85rem;
             position: relative;
@@ -294,13 +409,20 @@
         }
 
         /* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+        @media (max-width: 600px) {
+            header { padding: 15px 5%; }
+            .section-padding { padding: 60px 5%; }
 
-        /* Telas Ultra Laranjas e TVs (>= 1600px) */
-        @media (min-width: 1600px) {
-            .hero h1 { font-size: 5rem; }
-            .hero p { font-size: 1.8rem; }
-            .section-padding { padding: 120px 12%; }
-            .pets-grid { grid-template-columns: repeat(4, 1fr); }
+            .hero { clip-path: none; }
+
+            .routine-row { grid-template-columns: 1fr; }
+            .time-cell { background: var(--primary); color: var(--white); padding: 12px 15px; }
+            .task-cell { padding: 15px; }
+
+            .footer-content { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .social-icons { justify-content: center; }
+            
+            .paw-left-bottom { display: none; }
         }
 
         /* Tablets e Telas Médias (<= 992px) */
@@ -325,21 +447,12 @@
             .pets-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
         }
 
-        /* Celulares (<= 600px) */
-        @media (max-width: 600px) {
-            header { padding: 15px 5%; }
-            .section-padding { padding: 60px 5%; }
-
-            .hero { clip-path: none; } /* Remove corte para economizar espaço */
-
-            .routine-row { grid-template-columns: 1fr; }
-            .time-cell { background: var(--primary); color: var(--white); padding: 12px 15px; }
-            .task-cell { padding: 15px; }
-
-            .footer-content { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-            .social-icons { justify-content: center; }
-            
-            .paw-left-bottom { display: none; }
+         @media (min-width: 1600px) {
+            .hero h1 { font-size: 5rem; }
+            .hero p { font-size: 1.8rem; }
+            .section-padding { padding: 120px 12%; }
+            .pets-grid { grid-template-columns: repeat(4, 1fr); }
+            .help-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
@@ -362,6 +475,7 @@
                 <li><a href="#inicio" onclick="closeNav()">Início</a></li>
                 <li><a href="#adotar" onclick="closeNav()">Adoção</a></li>
                 <li><a href="#rotina" onclick="closeNav()">Rotina</a></li>
+                <li><a href="#quero-ajudar" onclick="closeNav()">Quero Ajudar</a></li>
                 <li><a href="#sobre-nos" onclick="closeNav()">Sobre Nós</a></li>
                 <li><a href="#contato" onclick="closeNav()">Contato</a></li>
             </ul>
@@ -417,58 +531,63 @@
                 </div>
             </div>
 
-             <div class="pet-card" data-type="gato">
+            <div class="pet-card" data-type="gato">
                 <span class="pet-tag">Gato</span>
-                <img src="https://cantinhodosanimais.com.br/wordpress/wp-content/files/cantinhodosanimais.com.br/2025/12/brisht-shorthair-1024x683.webp" class="pet-img" alt="Apollo">
+                <img src="https://cantinhodosanimais.com.br/wordpress/wp-content/files/cantinhodosanimais.com.br/2025/12/brisht-shorthair-1024x683.webp" class="pet-img" alt="Blaze">
                 <div class="pet-info">
                     <h3>Blaze</h3>
-                    <p><i class="fas fa-venus-mars"></i> Femea | <i class="fas fa-dog"></i> Porte Grande</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <p><i class="fas fa-venus-mars"></i> Fêmea | <i class="fas fa-cat"></i> Porte Médio</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Blaze', 'Uma gatinha charmosa da raça British Shorthair, muito calminha e carinhosa.')">Ver Dados</button>
                 </div>
             </div>
+
             <div class="pet-card" data-type="ouriço">
                 <span class="pet-tag">Ouriço</span>
-                <img src="https://www.phoenixzoo.org/wp-content/uploads/2024/03/DSC_6835-scaled.jpg" class="pet-img" alt="Apollo">
+                <img src="https://www.phoenixzoo.org/wp-content/uploads/2024/03/DSC_6835-scaled.jpg" class="pet-img" alt="Chuck">
                 <div class="pet-info">
                     <h3>Chuck</h3>
-                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Porte pequeno</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-paw"></i> Porte Pequeno</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Chuck', 'Um ouriço curioso e calmo. Precisa de cuidados especiais e um ambiente tranquilo.')">Ver Dados</button>
                 </div>
             </div>
+
             <div class="pet-card" data-type="papagaio">
                 <span class="pet-tag">Papagaio</span>
-                <img src="https://www.galaxcommerce.com.br/sistema/upload/3339/produtos/papagaio-verdadeiro-amazona-aestiva_2024-02-23_23-31-12_3_254.png" class="pet-img" alt="Apollo">
+                <img src="https://www.galaxcommerce.com.br/sistema/upload/3339/produtos/papagaio-verdadeiro-amazona-aestiva_2024-02-23_23-31-12_3_254.png" class="pet-img" alt="Jet">
                 <div class="pet-info">
                     <h3>Jet</h3>
-                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-bird"></i> Porte pequeno</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-crow"></i> Porte Pequeno</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Jet', 'Papagaio Verdadeiro muito falante e sociável, resgatado de posse irregular.')">Ver Dados</button>
                 </div>
             </div>
-             <div class="pet-card" data-type="cachorro">
+
+            <div class="pet-card" data-type="cachorro">
                 <span class="pet-tag">Cachorro</span>
-                <img src="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/09/23/1726614881-cachorro-adocao.jpg" class="pet-img" alt="Apollo">
+                <img src="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/09/23/1726614881-cachorro-adocao.jpg" class="pet-img" alt="Chip">
                 <div class="pet-info">
                     <h3>Chip</h3>
-                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> filhote</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Filhote</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Chip', 'Filhote brincalhão e supercarinhoso, resgatado recentemente.')">Ver Dados</button>
                 </div>
             </div>
+
             <div class="pet-card" data-type="cachorro">
                 <span class="pet-tag">Cachorro</span>
-                <img src="https://i.pinimg.com/736x/4e/c0/0c/4ec00c75e56b79d456df24893bae7241.jpg" class="pet-img" alt="Apollo">
+                <img src="https://i.pinimg.com/736x/4e/c0/0c/4ec00c75e56b79d456df24893bae7241.jpg" class="pet-img" alt="Shadow">
                 <div class="pet-info">
                     <h3>Shadow</h3>
-                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> filhote</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Filhote</p>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Shadow', 'Adora correr e brincar com bolinhas. Cheio de energia para gastar!')">Ver Dados</button>
                 </div>
             </div>
+
             <div class="pet-card" data-type="cachorro">
                 <span class="pet-tag">Cachorro</span>
-                <img src="https://www.patasdacasa.com.br/sites/default/files/styles/article_detail_1200/public/2024-06/bull-terrier.jpg.webp?itok=X_-JN03E" class="pet-img" alt="Apollo">
+                <img src="https://www.patasdacasa.com.br/sites/default/files/styles/article_detail_1200/public/2024-06/bull-terrier.jpg.webp?itok=X_-JN03E" class="pet-img" alt="Brutos">
                 <div class="pet-info">
                     <h3>Brutos</h3>
                     <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-dog"></i> Porte Grande</p>
-                    <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
+                    <button class="btn-cta" style="width:100%" onclick="openModal('Brutos', 'Apesar do nome, Brutos é um dócil Bull Terrier que adora receber carinho.')">Ver Dados</button>
                 </div>
             </div>
         </div>
@@ -506,68 +625,102 @@
         </div>
     </section>
 
+    <!-- NOVA SEÇÃO: QUERO AJUDAR -->
+    <section id="quero-ajudar" class="section-padding container">
+        <h2 class="reveal" style="text-align: center; margin-bottom: 10px; font-size: 2rem;">Como Você Pode Ajudar</h2>
+        <p class="reveal" style="text-align: center; margin-bottom: 40px;">Sua contribuição transforma vidas e mantém nosso projeto vivo.</p>
 
-        <section id="sobre-nos" class="section-padding container">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 60px;">
-        
-        <!-- Foto do Grupo -->
-        <div class="reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 4px solid var(--white);">
-            <!-- Substitua 'sua-foto-do-grupo.jpg' pelo caminho real da imagem do seu grupo -->
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000" alt="Grupo Abraço Animal" style="width: 100%; height: auto; display: block; object-fit: cover;">
+        <div class="help-grid">
+            <div class="help-card reveal">
+                <div class="help-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Doação via Pix</h3>
+                <p>Qualquer valor ajuda a custear tratamentos, vacinas e alimentação para nossos resgatados.</p>
+                <div class="pix-box">
+                    <span id="pixKey">abracoanimal@gmail.com</span>
+                    <button class="btn-copy" onclick="copyPix()">Copiar</button>
+                </div>
+            </div>
+
+            <div class="help-card reveal">
+                <div class="help-icon"><i class="fas fa-hands-helping"></i></div>
+                <h3>Seja Voluntário</h3>
+                <p>Doe seu tempo e carinho nos ajudando em feiras de adoção, passeios e cuidados diários.</p>
+                <button class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;" onclick="openModal('Seja Voluntário', 'Envie uma mensagem em nosso e-mail ou redes sociais informando sua disponibilidade e como gostaria de ajudar!')">Inscrever-se</button>
+            </div>
+
+            <div class="help-card reveal">
+                <div class="help-icon"><i class="fas fa-box-open"></i></div>
+                <h3>Doação de Insumos</h3>
+                <p>Aceitamos ração, medicamentos, cobertores, brinquedos e produtos de limpeza em nosso ponto de coleta.</p>
+                <a href="#contato" class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;">Ver Endereço</a>
+            </div>
+
+            <div class="help-card reveal">
+                <div class="help-icon"><i class="fas fa-heart"></i></div>
+                <h3>Apadrinhamento</h3>
+                <p>Não pode adotar agora? Apadrinhe um de nossos protegidos e ajude com os custos mensais dele.</p>
+                <button class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;" onclick="openModal('Apadrinhamento', 'Escolha um pet na aba de adoção e entre em contato conosco para saber as necessidades mensais dele.')">Apadrinhar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nos" class="section-padding container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 60px;">
+            <!-- Foto do Grupo -->
+            <div class="reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 4px solid var(--white);">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000" alt="Grupo Abraço Animal" style="width: 100%; height: auto; display: block; object-fit: cover;">
+            </div>
+
+            <!-- Texto sobre o Grupo -->
+            <div class="reveal">
+                <h2 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px;">Sobre Nós</h2>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                    O <strong>Abraço Animal</strong> nasceu do desejo de transformar a vida de animais vulneráveis por meio do afeto, do cuidado e da responsabilidade. Somos um projeto acadêmico dedicado a conectar protetores, abrigos e pessoas dispostas a oferecer um novo lar para quem só precisa de uma segunda chance.
+                </p>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                    Acreditamos que todo animal merece carinho e proteção. Por isso, aliamos tecnologia e amor à causa animal para facilitar adoções e promover a conscientização sobre o bem-estar dos nossos protegidos.
+                </p>
+            </div>
         </div>
 
-        <!-- Texto sobre o Grupo -->
-        <div class="reveal">
-            <h2 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px;">Sobre Nós</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
-                O <strong>Abraço Animal</strong> nasceu do desejo de transformar a vida de animais vulneráveis por meio do afeto, do cuidado e da responsabilidade. Somos um projeto acadêmico dedicado a conectar protetores, abrigos e pessoas dispostas a oferecer um novo lar para quem só precisa de uma segunda chance.
-            </p>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
-                Acreditamos que todo animal merece carinho e proteção. Por isso, aliamos tecnologia e amor à causa animal para facilitar adoções e promover a conscientização sobre o bem-estar dos nossos protegidos.
-            </p>
+        <!-- Integrantes do Grupo -->
+        <div class="reveal" style="background: #fdf2e9; padding: 40px 30px; border-radius: 20px;">
+            <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8rem;">Quem Faz Acontecer</h3>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">Conheça a equipe acadêmica por trás deste projeto:</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.1rem;">Lucas</h4>
+                    <p style="font-size: 0.85rem; color: #777;">Desenvolvimento e UX</p>
+                </div>
+
+                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.1rem;">Maria Beatriz</h4>
+                    <p style="font-size: 0.85rem; color: #777;">UI Design</p>
+                </div>
+
+                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.1rem;">Mateus Abreu</h4>
+                    <p style="font-size: 0.85rem; color: #777;">Implementação de informações</p>
+                </div>
+
+                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.1rem;">Matheus Lima</h4>
+                    <p style="font-size: 0.85rem; color: #777;">UI Design</p>
+                </div>
+
+                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.1rem;">Sarah</h4>
+                    <p style="font-size: 0.85rem; color: #777;">Comunicação</p>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- Integrantes do Grupo -->
-    <div class="reveal" style="background: #fdf2e9; padding: 40px 30px; border-radius: 20px;">
-        <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8rem;">Quem Faz Acontecer</h3>
-        <p style="text-align: center; margin-bottom: 30px; color: #666;">Conheça a equipe acadêmica por trás deste projeto:</p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
-            
-            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem;">Lucas</h4>
-                <p style="font-size: 0.85rem; color: #777;">Desenvolvimento</p>
-            </div>
-
-            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem;">Maria Beatriz</h4>
-                <p style="font-size: 0.85rem; color: #777;">UI/UX Design</p>
-            </div>
-
-            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem;">Mateus Abreu</h4>
-                <p style="font-size: 0.85rem; color: #777;">Conteúdo & Pesquisa</p>
-            </div>
-
-            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem;">Matheus Lima</h4>
-                <p style="font-size: 0.85rem; color: #777;">Gestão do Projeto</p>
-            </div>
-
-            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem;">Sarah</h4>
-                <p style="font-size: 0.85rem; color: #777;">Comunicação</p>
-            </div>
-
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Modal -->
     <div class="modal" id="petModal">
@@ -575,8 +728,8 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Nome do Pet</h2>
             <p id="modalDesc" style="margin: 20px 0; color: #666;"></p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdK6lblq5K0Mr68jVqpbR-abyiZGTYtRceyTSh9HQHP2-64lg/viewform?usp=header">
-            <button class="btn-cta">Iniciar Processo de Adoção</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdK6lblq5K0Mr68jVqpbR-abyiZGTYtRceyTSh9HQHP2-64lg/viewform?usp=header" target="_blank">
+                <button class="btn-cta">Iniciar Processo de Adoção</button>
             </a>
         </div>
     </div>
@@ -606,6 +759,10 @@
             </div>
 
             <img src="patinhas_V3.png" class="paw paw-left-bottom" alt="Patinhas da nossa logo">
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.6514604913355!2d-49.00304032385483!3d-21.126457376680655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bc1ee25566d02b%3A0x9fb4519ca1b46b0c!2sServi%C3%A7o%20Social%20da%20Ind%C3%BAstria%20-%20SESI!5e0!3m2!1spt-BR!2sbr!4v1786467567617!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
 
         <div class="footer-bottom">
@@ -643,8 +800,10 @@
         function closeNav() {
             navMenu.classList.remove('active');
             const icon = mobileToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
 
         // Filtro de Animais
@@ -673,6 +832,14 @@
 
         function closeModal() {
             document.getElementById('petModal').style.display = 'none';
+        }
+
+        // Copiar Chave Pix
+        function copyPix() {
+            const pixKey = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert('Chave Pix copiada para a área de transferência!');
+            });
         }
 
         // Fechar Modal ao clicar fora
