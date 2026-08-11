@@ -230,14 +230,7 @@
         }
         .routine-row:last-child { border-bottom: none; }
         .routine-row:hover { background: #fffcf7; }
-        .time-cell { 
-            background: var(--secondary); 
-            color: var(--white); /* Alterado de var(--primary) para var(--white) */
-            padding: 18px 20px; 
-            font-weight: 700; 
-            display: flex; 
-            align-items: center;
-        }
+        .time-cell { background: var(--secondary); color: var(--primary); padding: 18px 20px; font-weight: 700; display: flex; align-items: center; }
         .task-cell { padding: 18px 20px; display: flex; align-items: center; font-weight: 500; }
 
         /* --- Modal de Detalhes --- */
@@ -369,6 +362,7 @@
                 <li><a href="#inicio" onclick="closeNav()">Início</a></li>
                 <li><a href="#adotar" onclick="closeNav()">Adoção</a></li>
                 <li><a href="#rotina" onclick="closeNav()">Rotina</a></li>
+                <li><a href="#sobre-nos" onclick="closeNav()">Sobre Nós</a></li>
                 <li><a href="#contato" onclick="closeNav()">Contato</a></li>
             </ul>
         </nav>
@@ -446,7 +440,7 @@
                 <img src="https://www.galaxcommerce.com.br/sistema/upload/3339/produtos/papagaio-verdadeiro-amazona-aestiva_2024-02-23_23-31-12_3_254.png" class="pet-img" alt="Apollo">
                 <div class="pet-info">
                     <h3>Jet</h3>
-                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-crow"></i> Porte pequeno</p>
+                    <p><i class="fas fa-venus-mars"></i> Macho | <i class="fas fa-bird"></i> Porte pequeno</p>
                     <button class="btn-cta" style="width:100%" onclick="openModal('Apollo', 'Valente, forte e sempre em alerta, Apollo é ex-cão do Batalhão de Ações Especiais da Polícia, e hoje procura um novo lar para curtir sua aposentadoria.')">Ver Dados</button>
                 </div>
             </div>
@@ -511,6 +505,69 @@
             </div>
         </div>
     </section>
+
+
+        <section id="sobre-nos" class="section-padding container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 60px;">
+        
+        <!-- Foto do Grupo -->
+        <div class="reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 4px solid var(--white);">
+            <!-- Substitua 'sua-foto-do-grupo.jpg' pelo caminho real da imagem do seu grupo -->
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000" alt="Grupo Abraço Animal" style="width: 100%; height: auto; display: block; object-fit: cover;">
+        </div>
+
+        <!-- Texto sobre o Grupo -->
+        <div class="reveal">
+            <h2 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px;">Sobre Nós</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                O <strong>Abraço Animal</strong> nasceu do desejo de transformar a vida de animais vulneráveis por meio do afeto, do cuidado e da responsabilidade. Somos um projeto acadêmico dedicado a conectar protetores, abrigos e pessoas dispostas a oferecer um novo lar para quem só precisa de uma segunda chance.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                Acreditamos que todo animal merece carinho e proteção. Por isso, aliamos tecnologia e amor à causa animal para facilitar adoções e promover a conscientização sobre o bem-estar dos nossos protegidos.
+            </p>
+        </div>
+    </div>
+
+    <!-- Integrantes do Grupo -->
+    <div class="reveal" style="background: #fdf2e9; padding: 40px 30px; border-radius: 20px;">
+        <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8rem;">Quem Faz Acontecer</h3>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Conheça a equipe acadêmica por trás deste projeto:</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+            
+            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 1.1rem;">Lucas</h4>
+                <p style="font-size: 0.85rem; color: #777;">Desenvolvimento</p>
+            </div>
+
+            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 1.1rem;">Maria Beatriz</h4>
+                <p style="font-size: 0.85rem; color: #777;">UI/UX Design</p>
+            </div>
+
+            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 1.1rem;">Mateus Abreu</h4>
+                <p style="font-size: 0.85rem; color: #777;">Conteúdo & Pesquisa</p>
+            </div>
+
+            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 1.1rem;">Matheus Lima</h4>
+                <p style="font-size: 0.85rem; color: #777;">Gestão do Projeto</p>
+            </div>
+
+            <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 1.1rem;">Sarah</h4>
+                <p style="font-size: 0.85rem; color: #777;">Comunicação</p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Modal -->
     <div class="modal" id="petModal">
