@@ -17,30 +17,40 @@
             --bg-body: #fdfaf5;
             --white: #ffffff;
             --glass: rgba(255, 255, 255, 0.8);
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.3s ease-in-out;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
         
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--secondary);
+        html, body {
+            width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--secondary);
+        }
+
         h1, h2, h3, .logo { font-weight: 700; }
 
-        /* Container global */
         .container {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-body); }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
 
@@ -49,18 +59,20 @@
             position: fixed; 
             width: 100%; 
             top: 0; 
+            left: 0;
             z-index: 2000;
-            padding: 45px 8%; 
+            padding: 40px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center;
             transition: var(--transition);
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         }
 
         header.scrolled {
             background: var(--white);
-            padding: 30px 8%;
+            padding: 30px 5%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
@@ -68,11 +80,11 @@
             display: flex;
             align-items: center;
             position: relative;
-            height: 50px;
+            height: 45px;
         }
 
         .logo-img {
-            height: 100px;
+            height: 85px;
             width: auto;
             transition: var(--transition);
         }
@@ -82,13 +94,19 @@
 
         header.scrolled .logo-branca { opacity: 0; visibility: hidden; }
         header.scrolled .logo-laranja { opacity: 1; visibility: visible; }
-        header.scrolled .logo-img { height: 80px; }
+        header.scrolled .logo-img { height: 70px; }
+
+        /* Container do Menu */
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
 
         /* Navigation Menu */
         nav ul { 
             display: flex; 
             list-style: none; 
-            gap: 30px; 
+            gap: 25px; 
             align-items: center;
         }
         
@@ -96,7 +114,7 @@
             text-decoration: none; 
             color: var(--white); 
             font-weight: 600; 
-            font-size: 1.05rem; 
+            font-size: 0.95rem; 
             transition: var(--transition);
         }
 
@@ -104,7 +122,7 @@
         header.scrolled nav a { color: var(--secondary); }
         header.scrolled nav a:hover { color: var(--primary); }
 
-        /* Botão do Menu Mobile */
+        /* Botão do Menu Mobile à Extrema Direita */
         .mobile-toggle {
             display: none;
             background: none;
@@ -113,6 +131,8 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 2100;
+            padding: 5px;
+            margin-left: auto;
         }
         header.scrolled .mobile-toggle { color: var(--secondary); }
 
@@ -120,7 +140,7 @@
         .hero {
             min-height: 100vh;
             padding: 120px 20px 60px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), 
+            background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35)), 
                         url('https://images.unsplash.com/photo-1544568100-847a948585b9?q=80&w=1974') center/cover no-repeat;
             display: flex; 
             flex-direction: column; 
@@ -131,87 +151,119 @@
             clip-path: ellipse(150% 100% at 50% 0%);
         }
 
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.5rem); margin-bottom: 30px; font-weight: 300; max-width: 700px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 4.2rem); margin-bottom: 15px; line-height: 1.2; }
+        .hero p { font-size: clamp(0.95rem, 2vw, 1.3rem); margin-bottom: 25px; font-weight: 300; max-width: 700px; }
 
         .btn-cta {
-            padding: 15px 40px; 
+            padding: 12px 28px; 
             background: var(--primary); 
             color: var(--white);
             border: none; 
             border-radius: 50px; 
-            font-size: 1.1rem; 
+            font-size: 0.95rem; 
             font-weight: 700;
             cursor: pointer; 
             transition: var(--transition); 
-            box-shadow: 0 10px 20px rgba(243, 141, 30, 0.3);
+            box-shadow: 0 8px 18px rgba(243, 141, 30, 0.3);
             display: inline-block;
             text-decoration: none;
+            text-align: center;
         }
         .btn-cta:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 25px rgba(243, 141, 30, 0.5); 
+            transform: translateY(-2px); 
+            box-shadow: 0 12px 22px rgba(243, 141, 30, 0.5); 
             background: var(--primary-dark); 
         }
 
         /* --- Section Styling --- */
-        .section-padding { padding: 80px 8%; }
+        .section-padding { padding: 70px 0; }
 
         .filter-buttons { 
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap; 
-            gap: 12px; 
-            margin-bottom: 40px; 
+            gap: 10px; 
+            margin-bottom: 30px; 
         }
 
         .filter-btn {
-            padding: 10px 25px; 
+            padding: 8px 18px; 
             border: 2px solid var(--primary); 
             border-radius: 25px;
             background: transparent; 
             color: var(--primary); 
             font-weight: 700; 
+            font-size: 0.85rem;
             cursor: pointer; 
             transition: var(--transition);
         }
         .filter-btn.active, .filter-btn:hover { background: var(--primary); color: var(--white); }
 
-        /* --- Grid de Animais --- */
+        /* --- GRID E CARDS DE ANIMAIS --- */
         .pets-grid {
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+            gap: 25px;
+            align-items: stretch;
         }
 
         .pet-card {
             background: var(--white); 
             border-radius: 20px; 
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); 
             transition: var(--transition);
             position: relative; 
             border: 1px solid rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
-        .pet-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .pet-img { width: 100%; height: 260px; object-fit: cover; }
-        .pet-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
-        .pet-info h3 { font-size: 1.5rem; margin-bottom: 8px; }
-        .pet-info p { margin-bottom: 15px; font-size: 0.95rem; color: #666; }
+        .pet-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12); 
+        }
+
+        .pet-img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            flex-shrink: 0;
+        }
+
+        .pet-info { 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            flex-grow: 1; 
+            justify-content: space-between;
+        }
+
+        .pet-info h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 8px; 
+        }
+
+        .pet-info p { 
+            margin-bottom: 15px; 
+            font-size: 0.88rem; 
+            color: #666; 
+            line-height: 1.4;
+        }
         
         .pet-tag { 
             position: absolute; 
-            top: 15px; 
-            right: 15px; 
+            top: 12px; 
+            right: 12px; 
             background: var(--primary); 
             color: white; 
-            padding: 5px 15px; 
-            border-radius: 15px; 
-            font-size: 0.8rem; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
             font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
         /* --- Tabela de Rotina --- */
@@ -235,52 +287,58 @@
         .time-cell { 
             background: var(--secondary);
             color: var(--white);
-            padding: 18px 20px;
+            padding: 16px 20px;
             font-weight: 700;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
         }
-        .task-cell { padding: 18px 20px; display: flex; align-items: center; font-weight: 500; }
+        .task-cell { padding: 16px 20px; display: flex; align-items: center; font-weight: 500; font-size: 0.9rem; }
 
-        /* --- Estilos da Seção Quero Ajudar --- */
+        /* --- Seção Quero Ajudar (Centralizada) --- */
         .help-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .help-card {
             background: var(--white);
-            padding: 35px 25px;
+            padding: 25px 20px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            flex: 1 1 260px;
+            max-width: 320px;
+            min-height: 280px;
         }
 
         .help-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(243, 141, 30, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(243, 141, 30, 0.15);
         }
 
         .help-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: #fdf2e9;
             color: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
         .help-card:hover .help-icon {
@@ -289,23 +347,23 @@
         }
 
         .help-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--secondary);
         }
 
         .help-card p {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
 
         .pix-box {
             background: #fdf2e9;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 10px;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--secondary);
             width: 100%;
@@ -321,70 +379,73 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 6px 10px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 0.75rem;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
-        .btn-copy:hover {
-            background: var(--primary-dark);
-        }
+        .btn-copy:hover { background: var(--primary-dark); }
 
         /* --- Modal de Detalhes --- */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8); display: none; justify-content: center;
             align-items: center; z-index: 3000; backdrop-filter: blur(5px);
-            padding: 20px;
+            padding: 15px;
         }
         .modal-content {
-            background: var(--white); padding: 40px 30px; border-radius: 25px;
-            max-width: 500px; width: 100%; text-align: center; position: relative;
+            background: var(--white); padding: 30px 20px; border-radius: 20px;
+            max-width: 450px; width: 100%; text-align: center; position: relative;
         }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #888; }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; cursor: pointer; color: #888; }
 
         /* --- Footer --- */
         footer {
-            background: var(--secondary);
+            background-color: var(--secondary);
             color: #fff;
-            padding: 80px 8% 40px;
+            padding: 60px 0 30px;
             position: relative;
             overflow: hidden;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* Padrão de patinhas em segundo plano (background) */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('patinhas_V3.png');
+            background-repeat: repeat;
+            background-size: 280px;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .footer-content h3, .footer-content h4 { margin-bottom: 15px; }
-        .footer-content p { margin-bottom: 10px; font-size: 0.95rem; opacity: 0.9; }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content h3, .footer-content h4 { margin-bottom: 12px; }
+        .footer-content p { margin-bottom: 8px; font-size: 0.88rem; opacity: 0.9; }
 
         .social-icons {
-            display: flex; gap: 15px; font-size: 1.5rem; margin-top: 15px;
+            display: flex; gap: 15px; font-size: 1.4rem; margin-top: 12px;
         }
         .social-icons i { cursor: pointer; transition: var(--transition); }
         .social-icons i:hover { color: var(--primary); }
 
-        .paw {
-            position: absolute;
-            width: 150px;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.2;
-        }
-
-        .paw-left-bottom { right: 5%; bottom: 10px; }
-
         .map-container {
-            margin-top: 40px;
+            margin-top: 30px;
             width: 100%;
             border-radius: 15px;
             overflow: hidden;
@@ -394,65 +455,104 @@
 
         .map-container iframe {
             width: 100%;
-            height: 300px;
+            height: 250px;
             border: 0;
             display: block;
         }
 
         .footer-bottom {
             text-align: center; 
-            margin-top: 40px; 
-            opacity: .6; 
-            font-size: .85rem;
+            margin-top: 30px; 
+            opacity: .7; 
+            font-size: .8rem;
             position: relative;
             z-index: 2;
+            padding: 0 10px;
         }
 
-        /* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
-        @media (max-width: 600px) {
-            header { padding: 15px 5%; }
-            .section-padding { padding: 60px 5%; }
-
-            .hero { clip-path: none; }
-
-            .routine-row { grid-template-columns: 1fr; }
-            .time-cell { background: var(--primary); color: var(--white); padding: 12px 15px; }
-            .task-cell { padding: 15px; }
-
-            .footer-content { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-            .social-icons { justify-content: center; }
-            
-            .paw-left-bottom { display: none; }
-        }
-
-        /* Tablets e Telas Médias (<= 992px) */
+        /* ===================================================
+           MEDIA QUERIES (OTIMIZAÇÃO RESPONSIVA PARA CELULAR)
+        ====================================================== */
         @media (max-width: 992px) {
-            .mobile-toggle { display: block; }
-
-            nav ul {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 70%; height: 100vh;
-                background: var(--secondary);
-                flex-direction: column;
-                justify-content: center;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            header {
+                justify-content: space-between;
             }
 
-            nav.active ul { right: 0; }
+            .mobile-toggle { display: block; }
 
-            nav a { color: var(--white) !important; font-size: 1.2rem; }
-            
-            .pets-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            nav {
+                position: fixed;
+                top: 0; 
+                right: -100%;
+                width: 80%; 
+                max-width: 320px;
+                height: 100vh;
+                background: var(--secondary);
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+                z-index: 2050;
+            }
+
+            nav.active { right: 0; }
+
+            nav ul {
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                padding: 40px 20px;
+            }
+
+            nav a { color: var(--white) !important; font-size: 1.1rem; }
         }
 
-         @media (min-width: 1600px) {
-            .hero h1 { font-size: 5rem; }
-            .hero p { font-size: 1.8rem; }
-            .section-padding { padding: 120px 12%; }
-            .pets-grid { grid-template-columns: repeat(4, 1fr); }
-            .help-grid { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 768px) {
+            .section-padding { padding: 50px 0; }
+            .hero { clip-path: none; padding-top: 100px; }
+            
+            .routine-row { grid-template-columns: 1fr; }
+            .time-cell { 
+                background: var(--primary); 
+                color: var(--white); 
+                padding: 10px 15px; 
+                font-size: 0.85rem;
+            }
+            .task-cell { padding: 12px 15px; font-size: 0.85rem; }
+
+            footer::before {
+                background-size: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header { padding: 15px 4%; }
+            .logo-img { height: 40px; }
+            header.scrolled .logo-img { height: 38px; }
+
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.9rem; }
+
+            .filter-buttons { gap: 6px; }
+            .filter-btn { padding: 6px 14px; font-size: 0.78rem; }
+
+            .pets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-card {
+                max-width: 100%;
+                flex: 1 1 100%;
+            }
+
+            .pet-img {
+                height: 200px;
+            }
+
+            .footer-content { 
+                grid-template-columns: 1fr; 
+                gap: 25px; 
+                text-align: center; 
+            }
+            .social-icons { justify-content: center; }
         }
     </style>
 </head>
@@ -489,8 +589,8 @@
     </section>
 
     <section id="adotar" class="section-padding container">
-        <h2 style="text-align: center; margin-bottom: 10px; font-size: 2rem;">Nossos Protegidos</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Filtre por espécie e encontre sua alma gêmea.</p>
+        <h2 style="text-align: center; margin-bottom: 8px; font-size: 1.8rem;">Nossos Protegidos</h2>
+        <p style="text-align: center; margin-bottom: 30px; font-size: 0.9rem; color: #666;">Filtre por espécie e encontre sua alma gêmea.</p>
         
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterPets('todos', event)">Todos</button>
@@ -595,7 +695,7 @@
 
     <section id="rotina" class="section-padding" style="background: #fdf2e9;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">Nossa Rotina de Excelência</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Nossa Rotina de Excelência</h2>
             <div class="routine-box">
                 <div class="routine-row">
                     <div class="time-cell">07:00 - 08:00</div>
@@ -625,10 +725,9 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: QUERO AJUDAR -->
     <section id="quero-ajudar" class="section-padding container">
-        <h2 class="reveal" style="text-align: center; margin-bottom: 10px; font-size: 2rem;">Como Você Pode Ajudar</h2>
-        <p class="reveal" style="text-align: center; margin-bottom: 40px;">Sua contribuição transforma vidas e mantém nosso projeto vivo.</p>
+        <h2 class="reveal" style="text-align: center; margin-bottom: 8px; font-size: 1.8rem;">Como Você Pode Ajudar</h2>
+        <p class="reveal" style="text-align: center; margin-bottom: 30px; font-size: 0.9rem; color: #666;">Sua contribuição transforma vidas e mantém nosso projeto vivo.</p>
 
         <div class="help-grid">
             <div class="help-card reveal">
@@ -645,78 +744,75 @@
                 <div class="help-icon"><i class="fas fa-hands-helping"></i></div>
                 <h3>Seja Voluntário</h3>
                 <p>Doe seu tempo e carinho nos ajudando em feiras de adoção, passeios e cuidados diários.</p>
-                <button class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;" onclick="openModal('Seja Voluntário', 'Envie uma mensagem em nosso e-mail ou redes sociais informando sua disponibilidade e como gostaria de ajudar!')">Inscrever-se</button>
+                <button class="btn-cta" style="font-size: 0.85rem; padding: 10px 18px; width: 100%;" onclick="openModal('Seja Voluntário', 'Envie uma mensagem em nosso e-mail ou redes sociais informando sua disponibilidade e como gostaria de ajudar!')">Inscrever-se</button>
             </div>
 
             <div class="help-card reveal">
                 <div class="help-icon"><i class="fas fa-box-open"></i></div>
                 <h3>Doação de Insumos</h3>
                 <p>Aceitamos ração, medicamentos, cobertores, brinquedos e produtos de limpeza em nosso ponto de coleta.</p>
-                <a href="#contato" class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;">Ver Endereço</a>
+                <a href="#contato" class="btn-cta" style="font-size: 0.85rem; padding: 10px 18px; width: 100%;">Ver Endereço</a>
             </div>
 
             <div class="help-card reveal">
                 <div class="help-icon"><i class="fas fa-heart"></i></div>
                 <h3>Apadrinhamento</h3>
                 <p>Não pode adotar agora? Apadrinhe um de nossos protegidos e ajude com os custos mensais dele.</p>
-                <button class="btn-cta" style="font-size: 0.95rem; padding: 10px 20px;" onclick="openModal('Apadrinhamento', 'Escolha um pet na aba de adoção e entre em contato conosco para saber as necessidades mensais dele.')">Apadrinhar</button>
+                <button class="btn-cta" style="font-size: 0.85rem; padding: 10px 18px; width: 100%;" onclick="openModal('Apadrinhamento', 'Escolha um pet na aba de adoção e entre em contato conosco para saber as necessidades mensais dele.')">Apadrinhar</button>
             </div>
         </div>
     </section>
 
     <section id="sobre-nos" class="section-padding container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 60px;">
-            <!-- Foto do Grupo -->
-            <div class="reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 4px solid var(--white);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; align-items: center; margin-bottom: 40px;">
+            <div class="reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 3px solid var(--white);">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000" alt="Grupo Abraço Animal" style="width: 100%; height: auto; display: block; object-fit: cover;">
             </div>
 
-            <!-- Texto sobre o Grupo -->
             <div class="reveal">
-                <h2 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px;">Sobre Nós</h2>
-                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                <h2 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">Sobre Nós</h2>
+                <p style="font-size: 0.95rem; line-height: 1.7; color: #555; margin-bottom: 12px;">
                     O <strong>Abraço Animal</strong> nasceu do desejo de transformar a vida de animais vulneráveis por meio do afeto, do cuidado e da responsabilidade. Somos um projeto acadêmico dedicado a conectar protetores, abrigos e pessoas dispostas a oferecer um novo lar para quem só precisa de uma segunda chance.
                 </p>
-                <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                <p style="font-size: 0.95rem; line-height: 1.7; color: #555;">
                     Acreditamos que todo animal merece carinho e proteção. Por isso, aliamos tecnologia e amor à causa animal para facilitar adoções e promover a conscientização sobre o bem-estar dos nossos protegidos.
                 </p>
             </div>
         </div>
 
-        <!-- Integrantes do Grupo -->
-        <div class="reveal" style="background: #fdf2e9; padding: 40px 30px; border-radius: 20px;">
-            <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8rem;">Quem Faz Acontecer</h3>
-            <p style="text-align: center; margin-bottom: 30px; color: #666;">Conheça a equipe acadêmica por trás deste projeto:</p>
+        <div class="reveal" style="background: #fdf2e9; padding: 30px 20px; border-radius: 20px;">
+            <h3 style="text-align: center; margin-bottom: 8px; font-size: 1.5rem;">Quem Faz Acontecer</h3>
+            <p style="text-align: center; margin-bottom: 25px; color: #666; font-size: 0.88rem;">Conheça a equipe acadêmica por trás deste projeto:</p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
-                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4 style="font-size: 1.1rem;">Lucas</h4>
-                    <p style="font-size: 0.85rem; color: #777;">Desenvolvimento e UX</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center;">
+                <div style="background: var(--white); padding: 15px 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                    <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;"></i>
+                    <h4 style="font-size: 0.95rem;">Lucas</h4>
+                    <p style="font-size: 0.78rem; color: #777;">Desenvolvimento e UX</p>
                 </div>
 
-                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4 style="font-size: 1.1rem;">Maria Beatriz</h4>
-                    <p style="font-size: 0.85rem; color: #777;">UI Design</p>
+                <div style="background: var(--white); padding: 15px 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                    <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;"></i>
+                    <h4 style="font-size: 0.95rem;">Maria Beatriz</h4>
+                    <p style="font-size: 0.78rem; color: #777;">UI Design</p>
                 </div>
 
-                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4 style="font-size: 1.1rem;">Mateus Abreu</h4>
-                    <p style="font-size: 0.85rem; color: #777;">Implementação de informações</p>
+                <div style="background: var(--white); padding: 15px 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                    <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;"></i>
+                    <h4 style="font-size: 0.95rem;">Mateus Abreu</h4>
+                    <p style="font-size: 0.78rem; color: #777;">Informações</p>
                 </div>
 
-                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4 style="font-size: 1.1rem;">Matheus Lima</h4>
-                    <p style="font-size: 0.85rem; color: #777;">UI Design</p>
+                <div style="background: var(--white); padding: 15px 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                    <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;"></i>
+                    <h4 style="font-size: 0.95rem;">Matheus Lima</h4>
+                    <p style="font-size: 0.78rem; color: #777;">UI Design</p>
                 </div>
 
-                <div style="background: var(--white); padding: 20px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <i class="fas fa-user-circle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4 style="font-size: 1.1rem;">Sarah</h4>
-                    <p style="font-size: 0.85rem; color: #777;">Comunicação</p>
+                <div style="background: var(--white); padding: 15px 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                    <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;"></i>
+                    <h4 style="font-size: 0.95rem;">Sarah</h4>
+                    <p style="font-size: 0.78rem; color: #777;">Comunicação</p>
                 </div>
             </div>
         </div>
@@ -726,47 +822,47 @@
     <div class="modal" id="petModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Nome do Pet</h2>
-            <p id="modalDesc" style="margin: 20px 0; color: #666;"></p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdK6lblq5K0Mr68jVqpbR-abyiZGTYtRceyTSh9HQHP2-64lg/viewform?usp=header" target="_blank">
-                <button class="btn-cta">Iniciar Processo de Adoção</button>
+            <h2 id="modalTitle" style="font-size: 1.5rem;">Nome do Pet</h2>
+            <p id="modalDesc" style="margin: 15px 0; color: #666; font-size: 0.9rem; line-height: 1.5;"></p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdK6lblq5K0Mr68jVqpbR-abyiZGTYtRceyTSh9HQHP2-64lg/viewform?usp=header" target="_blank" style="text-decoration: none;">
+                <button class="btn-cta" style="width: 100%;">Iniciar Processo de Adoção</button>
             </a>
         </div>
     </div>
 
     <footer id="contato">    
-        <div class="footer-content">
-            <div>
-                <h3 style="color: var(--primary);">Abraço Animal</h3>
-                <p>Um trabalho acadêmico por Lucas, Maria Beatriz, Mateus Abreu, Matheus Lima e Sarah.</p>
-            </div>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="color: var(--primary);">Abraço Animal</h3>
+                    <p>Um trabalho acadêmico por Lucas, Maria Beatriz, Mateus Abreu, Matheus Lima e Sarah.</p>
+                </div>
 
-            <div>
-                <h4>Contato</h4>
-                <p><i class="fas fa-envelope"></i> abracoanimal@gmail.com</p>
-                <p><i class="fas fa-phone"></i> (11) 12345-6789</p>
-                <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 345 - SP</p>
-            </div>
+                <div>
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> abracoanimal@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 12345-6789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 345 - SP</p>
+                </div>
 
-            <div>
-                <h4>Social</h4>
-                <div class="social-icons">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fas fa-envelope"></i>
-                    <i class="fab fa-tiktok"></i>
+                <div>
+                    <h4>Social</h4>
+                    <div class="social-icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fas fa-envelope"></i>
+                        <i class="fab fa-tiktok"></i>
+                    </div>
                 </div>
             </div>
 
-            <img src="patinhas_V3.png" class="paw paw-left-bottom" alt="Patinhas da nossa logo">
-        </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.6514604913355!2d-49.00304032385483!3d-21.126457376680655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bc1ee25566d02b%3A0x9fb4519ca1b46b0c!2sServi%C3%A7o%20Social%20da%20Ind%C3%BAstria%20-%20SESI!5e0!3m2!1spt-BR!2sbr!4v1786467567617!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
 
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.6514604913355!2d-49.00304032385483!3d-21.126457376680655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bc1ee25566d02b%3A0x9fb4519ca1b46b0c!2sServi%C3%A7o%20Social%20da%20Ind%C3%BAstria%20-%20SESI!5e0!3m2!1spt-BR!2sbr!4v1786467567617!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-
-        <div class="footer-bottom">
-            CNPJ: 12.345.657/8910-11 | © Abraço Animal 2026 | Todos os direitos reservados
+            <div class="footer-bottom">
+                CNPJ: 12.345.657/8910-11 | © Abraço Animal 2026 | Todos os direitos reservados
+            </div>
         </div>
     </footer> 
 
@@ -774,7 +870,7 @@
         // Header scroll behavior
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 40) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
@@ -852,16 +948,16 @@
 
         // ScrollReveal Animations
         ScrollReveal().reveal('.reveal', { 
-            delay: 200, 
-            distance: '30px', 
+            delay: 150, 
+            distance: '20px', 
             origin: 'bottom', 
-            interval: 150 
+            interval: 100 
         });
 
         ScrollReveal().reveal('.pet-card', { 
-            delay: 200, 
-            interval: 100,
-            scale: 0.95
+            delay: 150, 
+            interval: 80,
+            scale: 0.98
         });
     </script>
 </body>
